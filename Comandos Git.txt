@@ -1,0 +1,124 @@
+Comnados básicos no github
+
+
+Configurando o GIT no computador
+
+1º Baixe o instalardor do git direto do sit do git: (https://git-scm.com)
+2º No site do git, escolha qual versão você irá instalar: Windows ou Linux
+
+
+-----------------------------------------------------------
+
+
+Configurando chave SSH
+
+1º Após ter instalado o git/git bash, abra-o e execute os seguintes comandos:
+- ssh-keygen -t ed25519 -c <e-mail usado no github>
+2º Após isso crie uma senha de acesso para a chave, e a mesma será criada. "passphrase"
+3º Após a criação da chave, navegue até o diretório de pasta oculta onde a chave foi criada. (.ssh)
+4º Após entrar no diretório, liste as duas chaves contidas nele e abra o conteúdo da chave pública.
+-cat id_ed25519.pub
+
+Obs:
+Durante a criação da chave SSH, serão configuradas duas chaves, sendo uma pública e outra privada.
+A chave que será adicionada no github, será a chave púlica.
+
+5º Após exibir na tela todo o conteúdo da chave pública, através do comando <cat id_ed25519.pub>, copie todo o conteúdo e adicione no github.
+
+6º No github vá em settings -> SSH and GPG Keys -> New SSH Key, escolha um título para essa nova chave e adicione o valor da chave pública que você gerou lá no git bash.
+
+7º Autentique com a senha e pronto, a chave estará vinculada na sua conta github
+
+8º Após todos esses passos, ainda é preciso inicializar o SSH-AGENT que é responsável por gerenciar as chaves durante os usos.(permaneça dentro da pasta oculta .ssh)
+- eval $(ssh-agent -s)
+
+9º Após inicializar o processo SSH-AGENT, iremos adicionar a chave privada nele (permaneça dentro da pasta oculta .ssh)
+- ssh-add id_ed25519
+
+10º Autentique com a senha criada e pronto! Tudo devidamente configurado!
+
+
+Resumo:
+- Gerar as chaves ssh
+- Adicionar a chave pública no github
+- Iniciar o ssh-agent e adicionar a chave privada nele
+
+
+-----------------------------------------------------------
+
+
+Existem duas formas de criar e atualizar um repositório.
+
+1º Criando o repositório no próprio github e depois clonando ele para a máquina local
+2º Criando o repositório no github e depois adicionando manualmente a URL do repositório na pasta do diretório local através do git bash com o comando (git clone <URL>)
+
+
+-----------------------------------------------------------
+
+
+Obs:
+1º Para poder adicionar um repositório em minha conta eu teho que clicar em fork, isso vai adicionar ele em minha conta github.
+
+2º Para baixar o repositório em meu pc eu tenho que entrar no bash e entrar na pasta que eu quero baixar e executar o camando:
+- git clone <url do repositório>
+
+
+-----------------------------------------------------------
+
+
+Incluir e atualizar projetos no github:
+
+
+*INCLUIR*
+
+1º Crie o repositório no GitHub sem o arquivo readme.md, sem licenças e sem o arquivo .gitignore, esse arquivo pode ser incluído depois no primeiro commit.
+Obs: Após incluído o projeto guarde a url do repositório.
+
+2º No diretório do projeto local inicie o controle de versão do git:
+- git init
+
+3º Insira todos os arquivos do projeto no controle de versão do git: (ELe vai colocar todos os arquivos daquele diretório que eu fiz o git init)
+- git add .
+
+4º Faça o commit do projeto: (Toda criação / modificação tem que ter commit para poder reconher a modificação)
+ - git commit -m "descrição breve do commit"
+
+5º Configure no projeto local o endereço do servidor do repositório no GitHub:(Devo colocar a url do meu novo repositório recem criado no github. Com isso toda modificação dentro dest diretório será direcionada para este repositório do github cadastrado).
+- git remote add origin [endereço do repositório GitHub obtido no item 1]
+
+
+Obs: Caso eu queira cadastrar este mesmo diretório em um novo repositório eu tenho primeiro que executar o comando para descadastrar a url antiga:
+- git remote remove <name> (Nesse caso usamos o "origin" pois foi o nome que usamos para criar o diretório no github no quinto passo: git remote add origin) Após realizar este comando, o diretório irá ficar sem nenhuma URL, e então poderemos confirgurar um novo enderço.
+
+
+6º Confira se o endereço do repositório do GitHub está correto no projeto local:
+- git remote -v
+
+7º Envie o projeto de seu computador para o GitHub:(Tem que estar dentro do diretório)
+- git push -u origin master (-git push origin master)
+
+
+
+*ATUALIZAR/SINCRONIZAR*
+
+Para atualizar um projeto de sua máquina local no GitHub e fazer o controle de versão siga os passos abaixo:
+
+1º Insira todos os arquivos alterados do projeto no repositório local do Git: (Ao executar este comando, irá acrescentar todos os novos arquivos e modificações ao endereço de URL do github cadastrado).
+- git add . (git add *)
+
+2º Faça o commit do projeto. O flag -m permite colocar uma frase curta descrevendo a alteração executada no projeto:(Ao executar este comando, as novas alterações estarão prontas para subir no github, pois todo o tipo de alteração deverá ser commitado, sempre).
+- git commit -m "descrição breve do commit"
+
+3º Envie o projeto local para o branch master no GitHub. Caso esteja trabalhando em outro branch, substitua o nome master pelo nome do branch:(Ou seja, após adicionar com <git add .> e após commitar com <git commit -m "descrição">, deerá ser feito o push novamente para subir os arquivos atualizados no github).
+- git push -u origin master
+
+
+
+Obs: Caso aconteça algum conflito de versão na hora de subir os arqivos pra o hub, como por exemplo acontece quando o repositório no github contém arquivos que não estão no diretório local. Se isso acontecer deverá ser executado o comando de - git pull origin master (que é o oposto de git push origin master)
+
+Obs geral:
+Para mostrar diretórios ocultos, devemos usar o comando <ls -a>
+Para consultar o status da branche dentro do projeto ou diretório que você está alterando, execute o comando <git status> ele vai mostar todos os arquivos que foram modificados. Após isso, execute os três passos para poder subir no github (<git add *> uo <git add .> / git commit -m "descrição" / git push origin master).
+
+
+
