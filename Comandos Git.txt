@@ -127,5 +127,9 @@ Opções de configuração:
 1- Configuração do e-mail: git config --global user.email "sosthenesms@yahoo.com.br"
 2- Configuração do user name: git config --gloal user.name "SosthenesMS"
 
+Obs:
+Git push (Para empurrar modficações para o diretório remoto)
+Git pull (Para baixar modificações do remoto para o local)
+
 Instrutor: Otavio Perkels
 
