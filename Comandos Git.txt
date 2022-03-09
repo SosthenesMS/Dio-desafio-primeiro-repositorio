@@ -122,3 +122,10 @@ Para consultar o status da branche dentro do projeto ou diretório que você est
 
 
 
+Opções de configuração:
+
+1- Configuração do e-mail: git config --global user.email "sosthenesms@yahoo.com.br"
+2- Configuração do user name: git config --gloal user.name "SosthenesMS"
+
+Instrutor: Otavio Perkels
+
