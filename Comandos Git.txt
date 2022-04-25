@@ -1,11 +1,13 @@
-Comnados básicos no github
+Comnados básicos no GIT
 
 
 Configurando o GIT no computador
 
+Resumo:
 1º Baixe o instalardor do git direto do sit do git: (https://git-scm.com)
 2º No site do git, escolha qual versão você irá instalar: Windows ou Linux
-
+3º Faça a confiuração git e das chaves ssh.
+4º Configure as suas chaves ssh com a sua conta do github.
 
 -----------------------------------------------------------
 
@@ -60,7 +62,7 @@ Obs:
 1º Para poder adicionar um repositório em minha conta eu teho que clicar em fork, isso vai adicionar ele em minha conta github.
 
 2º Para baixar o repositório em meu pc eu tenho que entrar no bash e entrar na pasta que eu quero baixar e executar o camando:
-- git clone <url do repositório>
+- git remote add origin <Endereço do repositório GitHub>
 
 
 -----------------------------------------------------------
@@ -83,7 +85,7 @@ Obs: Após incluído o projeto guarde a url do repositório.
 4º Faça o commit do projeto: (Toda criação / modificação tem que ter commit para poder reconher a modificação)
  - git commit -m "descrição breve do commit"
 
-5º Configure no projeto local o endereço do servidor do repositório no GitHub:(Devo colocar a url do meu novo repositório recem criado no github. Com isso toda modificação dentro dest diretório será direcionada para este repositório do github cadastrado).
+5º Configure no projeto local o endereço do servidor do repositório no GitHub:(Devo colocar a url do meu novo repositório recem criado no github. Com isso toda modificação dentro deste diretório será direcionada para este repositório do github cadastrado).
 - git remote add origin [endereço do repositório GitHub obtido no item 1]
 
 
@@ -95,7 +97,7 @@ Obs: Caso eu queira cadastrar este mesmo diretório em um novo repositório eu t
 - git remote -v
 
 7º Envie o projeto de seu computador para o GitHub:(Tem que estar dentro do diretório)
-- git push -u origin master (-git push origin master)
+- git push -u origin master (-git push -u origin master)
 
 
 
@@ -124,8 +126,9 @@ Para consultar o status da branche dentro do projeto ou diretório que você est
 
 Opções de configuração:
 
-1- Configuração do e-mail: git config --global user.email "sosthenesms@yahoo.com.br"
-2- Configuração do user name: git config --gloal user.name "SosthenesMS"
+1 - Configuração do e-mail: git config --global user.email "sosthenesms@yahoo.com.br" (Colocar preferencialmente o e-mail usado no github)
+2 - Configuração do user name: git config --gloal user.name "SosthenesMS" (Colocar preferencialmente o usuário do github)
+3 - Alterar a branch de "master" para "main" caso seja necessário: git branch -M "main"
 
 Obs:
 Git push (Para empurrar modficações para o diretório remoto)
