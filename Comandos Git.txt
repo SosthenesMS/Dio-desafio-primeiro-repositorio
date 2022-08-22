@@ -134,5 +134,8 @@ Obs:
 Git push (Para empurrar modficações para o diretório remoto)
 Git pull (Para baixar modificações do remoto para o local)
 
+PARA INICIAR UM NOVO VERSIONAMENTO JÁ ALTERANDO O NOME DA BRANCH
+git config --global init.defaultBranch <name>
+
 Instrutor: Otavio Perkels
 
